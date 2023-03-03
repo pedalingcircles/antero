@@ -5,11 +5,8 @@
 # https://github.com/containerd/containerd/blob/main/docs/getting-started.md
 # https://docs.docker.com/engine/install/ubuntu/#install-using-the-repository
 #
-# Tip: Run this via ssh with the following command:
-# ssh username@host 'echo "rootpass" | sudo -Sv && bash -s' < 01_setup_containerd.sh
-# ssh -t micjohns@192.168.73.171 'bash -s' < 01_setup_containerd.sh
-# ssh micjohns@192.168.73.171 'sudo bash -s' < 01_setup_containerd.sh
-# ssh -t micjohns@192.168.73.171 'sudo bash -s' < 01_setup_containerd.sh
+# Tip: Run this via ssh with the following command (must allow root login):
+# ssh root@192.168.73.171 'bash -s' < 01_setup_containerd.sh
 
 # Disable swap
 echo "Disabling swap"
@@ -48,3 +45,9 @@ sudo docker run hello-world
 echo "Setup containerd configuration"
 sudo mkdir -p /etc/containerd
 containerd config default | sudo tee /etc/containerd/config.toml
+
+echo "Set the cgroup driver for containerd to systemd which is required for the kubelet."
+sudo sed -i 's/            SystemdCgroup = false/            SystemdCgroup = true/' /etc/containerd/config.toml
+
+echo "Restart containerd with new settings"
+sudo systemctl restart containerd
