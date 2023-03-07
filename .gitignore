@@ -1,2 +1,8 @@
-# Local scratch that shouldn't be committed
-local
+# Developers can store local stuff in dirs named __something
+__*
+
+# OSX leaves these everywhere on SMB shares
+._*
+
+# OSX trash
+.DS_Store
