@@ -1,8 +1,6 @@
 # Developers can store local stuff in dirs named __something
 __*
 
-# OSX leaves these everywhere on SMB shares
-._*
-
-# OSX trash
-.DS_Store
+# Media files
+*.mp4
+*.mkv
