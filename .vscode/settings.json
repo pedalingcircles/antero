@@ -1,0 +1,16 @@
+{
+    "cSpell.words": [
+        "autopep",
+        "bazel",
+        "cpptools",
+        "devcontainers",
+        "donjayamanne",
+        "mypy",
+        "pycodestyle",
+        "pydocstyle",
+        "pylance",
+        "pylint",
+        "pytest",
+        "yapf"
+    ]
+}

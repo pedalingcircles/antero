@@ -1,0 +1,85 @@
+{
+	"name": "Tensorflow Dev Container",
+	"dockerFile": "Dockerfile",
+	"build": {
+		"dockerfile": "./Dockerfile",
+        "context": ".",
+		"args": {
+			"IMAGE_TYPE": "latest"
+		}
+	},
+	"features": {
+        "ghcr.io/devcontainers/features/common-utils:1":{
+            "installZsh": "true",
+            "username": "vscode",
+            "uid": "1000",
+            "gid": "1000",
+            "upgradePackages": "true"
+        },
+        "ghcr.io/devcontainers/features/python:1": "none",
+		"ghcr.io/devcontainers/features/git:1": {
+            "version": "latest",
+            "ppa": "false"
+        }
+    },
+    "overrideFeatureInstallOrder": [
+        "ghcr.io/devcontainers/features/common-utils"
+    ],
+	"customizations": {
+		"vscode": {
+			// Set *default* container specific settings.json values on container create.
+			"settings": {
+				"python.defaultInterpreterPath": "/usr/local/bin/python",
+				"python.linting.enabled": true,
+				"python.linting.pylintEnabled": true,
+				"python.formatting.autopep8Path": "/usr/local/py-utils/bin/autopep8",
+				"python.formatting.blackPath": "/usr/local/py-utils/bin/black",
+				"python.formatting.yapfPath": "/usr/local/py-utils/bin/yapf",
+				"python.linting.banditPath": "/usr/local/py-utils/bin/bandit",
+				"python.linting.flake8Path": "/usr/local/py-utils/bin/flake8",
+				"python.linting.mypyPath": "/usr/local/py-utils/bin/mypy",
+				"python.linting.pycodestylePath": "/usr/local/py-utils/bin/pycodestyle",
+				"python.linting.pydocstylePath": "/usr/local/py-utils/bin/pydocstyle",
+				"python.linting.pylintPath": "/usr/local/py-utils/bin/pylint",
+				"python.testing.pytestEnabled": true,
+				"python.testing.pytestArgs": [
+					"./tensorflow"
+				],
+				"C_Cpp.clang_format_style": "{BasedOnStyle: Google}",
+				"C_Cpp.default.includePath": [
+					"${workspaceFolder}/**"
+				],
+				"files.watcherExclude": {
+					"**/bazel-*/**": true
+				},
+				"search.exclude": {
+					"**/bazel-*/**": true
+				},
+				"cSpell.words": [
+					"bazel",
+					"cpptools",
+					"donjayamanne",
+					"pytest"
+				]
+			},
+			"extensions": [
+				"streetsidesoftware.code-spell-checker",
+				"ms-python.python",
+				"ms-python.vscode-pylance",
+				"donjayamanne.python-extension-pack",
+				"ms-vscode.cpptools"
+			]
+		}
+	},
+	"mounts": [
+		"source=tensorflow_cache,target=/home/vscode/.cache/bazel/"
+	],
+	"runArgs": [
+		"--cap-add=SYS_PTRACE",
+		// Uncomment this to enable Nvidia support
+		//"--runtime=nvidia",
+		"--security-opt",
+		"seccomp=unconfined"
+	],
+	"remoteUser": "vscode"
+}
