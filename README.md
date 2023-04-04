@@ -4,7 +4,7 @@ Home sensor network
 
 ## Troubleshooting tips
 
-If you get the folowing message output when building your Dockerfile 
+If you get the following message output when building your Dockerfile 
 
 ```
 - err: docker-credential-desktop resolves to executable in current directory (./docker-credential-desktop), out: 
