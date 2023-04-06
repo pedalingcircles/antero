@@ -1,5 +1,6 @@
 {
     "cSpell.words": [
+        "antero",
         "autopep",
         "bazel",
         "cpptools",
@@ -11,6 +12,7 @@
         "pylance",
         "pylint",
         "pytest",
+        "seccomp",
         "yapf"
     ]
 }
