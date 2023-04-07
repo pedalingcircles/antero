@@ -74,11 +74,8 @@
 		"source=tensorflow_cache,target=/home/vscode/.cache/bazel/"
 	],
 	"runArgs": [
-		"--cap-add=SYS_PTRACE",
-		// Uncomment this to enable Nvidia support
-		//"--runtime=nvidia",
-		"--security-opt",
-		"seccomp=unconfined"
+		"--gpus=all"
 	],
+	"onCreateCommand": "locale-gen \"en_US.UTF-8\"",
 	"remoteUser": "vscode"
 }
