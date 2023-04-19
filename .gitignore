@@ -4,3 +4,8 @@ __*
 # Media files
 *.mp4
 *.mkv
+
+# This might be removed later since it's related to a unversal devcontainer image
+# and comes from https://github.com/devcontainers/images/blob/main/.gitignore
+node_modules/
+.tgz
