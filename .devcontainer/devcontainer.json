@@ -1,17 +1,14 @@
 {
-    "image": "mcr.microsoft.com/devcontainers/javascript-node:0-18",
-    "features": {
-        "ghcr.io/devcontainers/features/docker-in-docker:2": {},
-        "ghcr.io/devcontainers/features/azure-cli:1": {}
-    },
-    "postCreateCommand": "npm install -g @devcontainers/cli",
-    "customizations": {
-        "vscode": {
-            "extensions": [
-                "mads-hartmann.bash-ide-vscode",
-                "dbaeumer.vscode-eslint",
-                "EditorConfig.EditorConfig"
-            ]
-        }
-    }
+    "name": "TensorFlow-Examples",
+    "dockerFile": "Dockerfile",
+	// Configure tool-specific properties.
+	"customizations": {
+		// Configure properties specific to VS Code.
+		"vscode": {
+			// Add the IDs of extensions you want installed when the container is created.
+			"extensions": [
+				"ms-python.python"
+			]
+		}
+	}
 }
